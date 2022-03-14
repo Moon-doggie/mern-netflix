@@ -15,20 +15,18 @@ export default function List() {
 
     // function to handle arrow click events (direction = left or right).
     const handleClick = (direction) =>{
-        setIsMoved(true)
+        setIsMoved(true);
+        // gets the distance from the left of the screen to the current list item. 50 is minused for the width of the arrow.
+        let distance = listRef.current.getBoundingClientRect().x - 50;
         // as each item has 225 plus 5 margin (total 230). it should move this much on click.
         if(direction === "left" && slideNumber > 0){
-            setSlideNumber(slideNumber - 1)
-            // gets the distance from the left of the screen to the current list item. 50 is minused for the width of the arrow.
-            let distance = listRef.current.getBoundingClientRect().x - 50
+            setSlideNumber(slideNumber - 1);
             // note used ` ` for the inclusion of distance
             listRef.current.style.transform = `translateX(${230 + distance}px)`
         } 
 
         if(direction === "right" && slideNumber < 5){
             setSlideNumber(slideNumber + 1)
-            // gets the distance from the left of the screen to the current list item. 50 is minused for the width of the arrow.
-            let distance = listRef.current.getBoundingClientRect().x - 50
             // note used ` ` for the inclusion of distance
             listRef.current.style.transform = `translateX(${-230 + distance}px)`
         } 
