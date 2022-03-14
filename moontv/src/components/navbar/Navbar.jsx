@@ -1,9 +1,19 @@
-import { ArrowDropDown, Notifications, Search } from '@material-ui/icons'
+import { ArrowDropDown, LaptopWindows, Notifications, Search } from '@material-ui/icons'
+import { useState } from 'react'
 import './navbar.scss'
 
 const Navbar = () => {
+    // set useState for scroll effect i.e. transparent at top and black when isScrolled
+    const [isScrolled, setIsScrolled]  = useState(false);
+
+    window.onscroll = () => {
+        // if it is on the top then false, if not on the top then set to true.
+        setIsScrolled(window.pageYOffset === 0 ? false : true);
+        return () => (window.onscroll = null);
+    }
   return (
-    <div className="navbar">
+      // Condition, if isSCrolled then navbar scrolled style, if false, then navbar style.
+    <div className= {isScrolled ? "navbar scrolled" : "navbar"}>
         <div className="container">
             <div className="left">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/170px-Netflix_2015_logo.svg.png" 
@@ -12,7 +22,8 @@ const Navbar = () => {
                 <span>Homepage</span>
                 <span>Series</span>
                 <span>Movies</span>
-                <span>New and Popular</span>
+                <span>New</span>
+                <span>Popular</span>
                 <span>My List</span>
             </div>
             <div className='right'>
