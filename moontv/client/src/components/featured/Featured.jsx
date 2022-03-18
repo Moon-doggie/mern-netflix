@@ -1,13 +1,35 @@
 import { InfoOutlined, PlayArrow } from "@material-ui/icons"
+import axios from "axios"
+import { useEffect, useState } from "react"
 import "./featured.scss"
 
 export default function Featured({type}) {
+    const [content, setContent] = useState({})
+
+    useEffect(() => {
+        const getRandomContent = async () => {
+            try {
+            const res = await axios.get(`/movies/random?type=${type}`, {
+                headers: {
+                    token:
+                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzFmMjI2MmM3MTM2NDgwM2QwZmQxYyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NzU4ODQzNiwiZXhwIjoxNjQ4MDIwNDM2fQ.xB9iAMv-b2ZHiNDPKErp5OL2R6h8e9VWuwviuDadcB0"
+                },
+            })
+            setContent(res.data[0])
+            } 
+            catch (err) {
+                console.log(err)
+            }
+        }
+        getRandomContent()
+    }, [type])
+    
     return (
         <div className="featured">
                 {/* include type, so if there is type like series or movies, then show type. */}
                 {type && (
                     <div className="category">
-                        <span>{type === "movie" ? "Movies" : "Series"}</span> 
+                        <span>{type === "movies" ? "Movies" : "Series"}</span> 
                         <select name="fenre" id="genre">
                             <option value="comedy">Comedy</option>
                             <option value="crime">Crime</option>
@@ -24,16 +46,17 @@ export default function Featured({type}) {
                         </select>   
                     </div>
                 ) }
-            <img src="https://i.pinimg.com/originals/1a/9c/f4/1a9cf4a7e2eaccc072f410b4b656073a.png"
+            <img src={content.img }
             alt="" 
             />
             {/* info container  */}
             <div className="info">
             {/* image for information title */}
-            <img src="https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABbJ1UgdLK5z1LclD2A_4j4Cd1gs_AK3Oq7cJD0IKww1XvN9bh722-QynrUIFKZrHZvURjrmVJAr9Rr9phEUB21gEggsGE4VIWEJr.png?r=873" 
+            <img src={content.imgTitle}
             alt="" 
             />
-            <span className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum adipisci eum, nemo reprehenderit magnam officiis tenetur? Laboriosam, veritatis quos, esse soluta quo autem quia aut maiores officiis, fugiat veniam.
+            <span className="description">
+                {content.desc}
             </span>
             <div className="buttons">
                 <button className="play">

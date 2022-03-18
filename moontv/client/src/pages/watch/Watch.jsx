@@ -1,19 +1,26 @@
 import { ArrowBackOutlined } from '@material-ui/icons'
+import { Link, useLocation } from 'react-router-dom'
 import './watch.scss'
 
 export default function Watch() {
-  return (
-    <div className="watch">
-        <div className="back">
-            <ArrowBackOutlined/>
-            Home
+    const location = useLocation()
+    const {movie} = location.state 
+    
+    return (
+        <div className="watch">
+            <Link to="/">
+            <div className="back">
+                <ArrowBackOutlined/>
+                Home
+            </div>
+            </Link>
+            {/* Video needs to be made dynamic... */}
+            <video src={movie.video} 
+            className="video" 
+            autoplay 
+            progress 
+            controls>                
+            </video>
         </div>
-        {/* Video needs to be made dynamic... */}
-        <video src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761" 
-        className="video" 
-        autoplay 
-        progress 
-        controls></video>
-    </div>
-  )
+    )
 }

@@ -1,46 +1,71 @@
 import "./listItem.scss";
 import { PlayArrow, Add, ThumbUpAltOutlined, ThumbDownOutlined} from "@material-ui/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
-export default function ListItem({ index }) {
-  const [isHovered, setIsHovered] = useState(false);
+export default function ListItem({ index, item }) {
 
-  // this will be changed later to be dynamic
-  const trailer = "https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761";
-  return (
-    <div
-      className="listItem"
-      style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <img
-        src="https://www.denofgeek.com/wp-content/uploads/2021/03/Resident-Alien-Finale.jpg?resize=768%2C432"
-        alt=""
-      />
-      {isHovered && (
-        <>
-          <video src={trailer} autoPlay={true} loop />
-          <div className="itemInfo">
-            <div className="icons">
-              <PlayArrow className="icon" />
-              <Add className="icon" />
-              <ThumbUpAltOutlined className="icon" />
-              <ThumbDownOutlined className="icon" />
+    const [isHovered, setIsHovered] = useState(false);
+    const [movie, setMovie] = useState({});
+    
+
+    useEffect(() => {
+        const getMovie = async () => {
+            try {
+                const res = await axios.get("/movies/find/" + item, {
+                    headers: {
+                        token:
+                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzFmMjI2MmM3MTM2NDgwM2QwZmQxYyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NzU4ODQzNiwiZXhwIjoxNjQ4MDIwNDM2fQ.xB9iAMv-b2ZHiNDPKErp5OL2R6h8e9VWuwviuDadcB0"
+                    },
+                })
+                setMovie(res.data)
+            } 
+            catch (err) {
+                console.log(err)
+            }
+        }
+        getMovie()
+    }, [item])
+
+return (
+    
+    // When clicking in box, link to watch with movie object.
+    <Link to="/watch" state={{movie}}>
+        <div
+        className="listItem"
+        style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        >
+        <img
+            src={movie.img}
+            alt=""
+            />
+        {isHovered && (
+            <>
+            <video src={movie.trailer} autoPlay={true} loop />
+            <div className="itemInfo">
+                <div className="icons">
+                <PlayArrow className="icon" />
+                <Add className="icon" />
+                <ThumbUpAltOutlined className="icon" />
+                <ThumbDownOutlined className="icon" />
+                </div>
+                <div className="itemInfoTop">
+                <span>{movie.duration}</span>
+                <span className="limit">{movie.limit}</span>
+                <span>{movie.year}</span>
+                </div>
+                <div className="desc">
+                {movie.desc}
+                </div>
+                <div className="genre">{movie.genre}</div>
             </div>
-            <div className="itemInfoTop">
-              <span>1 hour 14 mins</span>
-              <span className="limit">+16</span>
-              <span>1999</span>
-            </div>
-            <div className="desc">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Praesentium hic rem eveniet error possimus, neque ex doloribus.
-            </div>
-            <div className="genre">Action</div>
-          </div>
-        </>
-      )}
-    </div>
+            </>
+        )}
+        </div>
+    </Link>
+    
   );
 }
