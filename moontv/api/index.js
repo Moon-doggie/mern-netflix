@@ -6,9 +6,11 @@ const app = express();
 const mongoose = require("mongoose")
 // dotenv to hide username and password of mongodb
 const dotenv = require("dotenv")
-// router
+// routers
 const authRoute = require("./routes/auth")
 const userRoute = require("./routes/users")
+const movieRoute = require("./routes/movies")
+const listRoute = require("./routes/lists")
 
 // .env config
 dotenv.config()
@@ -27,8 +29,14 @@ mongoose.connect(process.env.MONGO_URL, {
 
 app.use(express.json())
 
+// auth route
 app.use("/api/auth", authRoute)
+// users route
 app.use("/api/users", userRoute)
+// movie route
+app.use("/api/movies", movieRoute)
+// list route
+app.use("/api/lists", listRoute)
 
 
 // run application using port 8800.

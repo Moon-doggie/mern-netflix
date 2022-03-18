@@ -7,6 +7,6 @@ title:{type:String, required:true, unique:true},
 type:{type:String},
 genre:{type:String}, 
 content:{type:Array}
-},{timestamp:true})
+},{timestamps:true})
 
 module.exports = mongoose.model("List", ListSchema)

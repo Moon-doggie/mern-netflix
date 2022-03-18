@@ -14,6 +14,6 @@ year:{type:String},
 limit:{type:Number}, 
 genre:{type:String}, 
 isSeries:{type:Boolean, default:false}
-},{timestamp:true})
+},{timestamps:true})
 
 module.exports = mongoose.model("Movie", MovieSchema)
