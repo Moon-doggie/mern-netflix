@@ -3,8 +3,6 @@ const User = require("../models/User")
 const CryptoJS = require("crypto-js");
 const verify = require("../verifyToken")
 
-
-
 // Update
 // Method uses put because updating.
 router.put("/:id", verify, async (req, res) => {

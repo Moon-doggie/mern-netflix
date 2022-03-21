@@ -2,8 +2,6 @@ const router = require("express").Router()
 const Movie = require("../models/Movie")
 const verify = require("../verifyToken")
 
-
-
 // Create new movie
 // Method uses post because creating new.
 router.post("/", verify, async (req, res) => {
