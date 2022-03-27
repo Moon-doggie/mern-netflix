@@ -53,7 +53,7 @@
       export const userRows = [
         { 
             id: 1,
-            username: "Jackson Newton",
+            username: "Eliot Anderson",
             avatar: "https://static.wikia.nocookie.net/evangelion/images/1/12/Rei_Ayanami_OP.png",
             email: "jacksontest@gmail.com",
             status: "active",
@@ -61,7 +61,7 @@
          },
         { 
             id: 2,
-            username: "Jackson Newton",
+            username: "Eliot Anderson",
             avatar: "https://static.wikia.nocookie.net/evangelion/images/1/12/Rei_Ayanami_OP.png",
             email: "jacksontest@gmail.com",
             status: "active",
@@ -69,7 +69,7 @@
          },
         { 
             id: 3,
-            username: "Jackson Newton",
+            username: "Eliot Anderson",
             avatar: "https://static.wikia.nocookie.net/evangelion/images/1/12/Rei_Ayanami_OP.png",
             email: "jacksontest@gmail.com",
             status: "active",
@@ -77,7 +77,7 @@
          },
         { 
             id: 4,
-            username: "Jackson Newton",
+            username: "Eliot Anderson",
             avatar: "https://static.wikia.nocookie.net/evangelion/images/1/12/Rei_Ayanami_OP.png",
             email: "jacksontest@gmail.com",
             status: "active",
@@ -85,7 +85,7 @@
          },
         { 
             id: 5,
-            username: "Jackson Newton",
+            username: "Eliot Anderson",
             avatar: "https://static.wikia.nocookie.net/evangelion/images/1/12/Rei_Ayanami_OP.png",
             email: "jacksontest@gmail.com",
             status: "active",
@@ -93,7 +93,7 @@
          },
         { 
             id: 6,
-            username: "Jackson Newton",
+            username: "Eliot Anderson",
             avatar: "https://static.wikia.nocookie.net/evangelion/images/1/12/Rei_Ayanami_OP.png",
             email: "jacksontest@gmail.com",
             status: "active",
@@ -101,7 +101,7 @@
          },
         { 
             id: 7,
-            username: "Jackson Newton",
+            username: "Eliot Anderson",
             avatar: "https://static.wikia.nocookie.net/evangelion/images/1/12/Rei_Ayanami_OP.png",
             email: "jacksontest@gmail.com",
             status: "active",
@@ -109,7 +109,7 @@
          },
         { 
             id: 8,
-            username: "Jackson Newton",
+            username: "JEliot Anderson",
             avatar: "https://static.wikia.nocookie.net/evangelion/images/1/12/Rei_Ayanami_OP.png",
             email: "jacksontest@gmail.com",
             status: "active",
@@ -117,7 +117,7 @@
          },
         { 
             id: 9,
-            username: "Jackson Newton",
+            username: "Eliot Anderson",
             avatar: "https://static.wikia.nocookie.net/evangelion/images/1/12/Rei_Ayanami_OP.png",
             email: "jacksontest@gmail.com",
             status: "active",
@@ -125,7 +125,7 @@
          },
         { 
             id: 10,
-            username: "Jackson Newton",
+            username: "Eliot Anderson",
             avatar: "https://static.wikia.nocookie.net/evangelion/images/1/12/Rei_Ayanami_OP.png",
             email: "jacksontest@gmail.com",
             status: "active",
