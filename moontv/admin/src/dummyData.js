@@ -132,3 +132,101 @@
             transaction: "$120.00"
          },
       ];
+
+      export const productRows = [
+        { 
+            id: 1,
+            name: "Apple Airpods",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAQ0zvQs0ef5AydQZvffJe-VXoie8sWbPxMg&usqp=CAU",
+            stock: 123,
+            status: "active",
+            price: "$120.00"
+         },
+        { 
+            id: 2,
+            name: "Apple Airpods",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAQ0zvQs0ef5AydQZvffJe-VXoie8sWbPxMg&usqp=CAU",
+            stock: 123,
+            status: "active",
+            price: "$120.00"
+         },
+        { 
+            id: 3,
+            name: "Apple Airpods",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAQ0zvQs0ef5AydQZvffJe-VXoie8sWbPxMg&usqp=CAU",
+            stock: 123,
+            status: "active",
+            price: "$120.00"
+         },
+        { 
+            id: 4,
+            name: "Apple Airpods",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAQ0zvQs0ef5AydQZvffJe-VXoie8sWbPxMg&usqp=CAU",
+            stock: 123,
+            status: "active",
+            price: "$120.00"
+         },
+        { 
+            id: 5,
+            name: "Apple Airpods",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAQ0zvQs0ef5AydQZvffJe-VXoie8sWbPxMg&usqp=CAU",
+            stock: 123,
+            status: "active",
+            price: "$120.00"
+         },
+        { 
+            id: 6,
+            name: "Apple Airpods",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAQ0zvQs0ef5AydQZvffJe-VXoie8sWbPxMg&usqp=CAU",
+            stock: 123,
+            status: "active",
+            price: "$120.00"
+         },
+        { 
+            id: 7,
+            name: "Apple Airpods",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAQ0zvQs0ef5AydQZvffJe-VXoie8sWbPxMg&usqp=CAU",
+            stock: 123,
+            status: "active",
+            price: "$120.00"
+         },
+        { 
+            id: 8,
+            name: "Apple Airpodsn",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAQ0zvQs0ef5AydQZvffJe-VXoie8sWbPxMg&usqp=CAU",
+            stock: 123,
+            status: "active",
+            price: "$120.00"
+         },
+        { 
+            id: 9,
+            name: "Apple Airpods",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAQ0zvQs0ef5AydQZvffJe-VXoie8sWbPxMg&usqp=CAU",
+            stock: 123,
+            status: "active",
+            price: "$120.00"
+         },
+        { 
+            id: 10,
+            name: "Apple Airpods",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAQ0zvQs0ef5AydQZvffJe-VXoie8sWbPxMg&usqp=CAU",
+            stock: 123,
+            status: "active",
+            price: "$120.00"
+         },
+      ];
+
+      export const productData = [
+        {
+          name: 'Jan',
+          "Sales": 4000,
+        },
+        {
+          name: 'Feb',
+          "Sales": 4500,
+        },
+        {
+          name: 'Mar',
+          "Sales": 3000,
+        },      
+      ]; 

@@ -31,13 +31,7 @@ export default function WidgetLg() {
                     <Button type = "Approved" />
                 </td>
             </tr>
-            <tr className="widgetLgTr">
-                <th className="widgetLgTh">Customer</th>
-                <th className="widgetLgTh">Date</th>
-                <th className="widgetLgTh">Amount</th>
-                <th className="widgetLgTh">Status</th>
-            </tr>
-            <tr className="widgetLgTr">
+          <tr className="widgetLgTr">
                 <td className="widgetLgUser">
                     <img src="https://static.wikia.nocookie.net/evangelion/images/1/12/Rei_Ayanami_OP.png" alt="" className="widgetLgImg" />
                     <span className="widgetLgName">Jackson Newton</span>
@@ -51,12 +45,6 @@ export default function WidgetLg() {
                 <td className="widgetLgStatus">
                     <Button type = "Declined" />
                 </td>
-            </tr>
-            <tr className="widgetLgTr">
-                <th className="widgetLgTh">Customer</th>
-                <th className="widgetLgTh">Date</th>
-                <th className="widgetLgTh">Amount</th>
-                <th className="widgetLgTh">Status</th>
             </tr>
             <tr className="widgetLgTr">
                 <td className="widgetLgUser">
@@ -73,13 +61,7 @@ export default function WidgetLg() {
                     <Button type = "Pending" />
                 </td>
             </tr>
-            <tr className="widgetLgTr">
-                <th className="widgetLgTh">Customer</th>
-                <th className="widgetLgTh">Date</th>
-                <th className="widgetLgTh">Amount</th>
-                <th className="widgetLgTh">Status</th>
-            </tr>
-            <tr className="widgetLgTr">
+           <tr className="widgetLgTr">
                 <td className="widgetLgUser">
                     <img src="https://static.wikia.nocookie.net/evangelion/images/1/12/Rei_Ayanami_OP.png" alt="" className="widgetLgImg" />
                     <span className="widgetLgName">Jackson Newton</span>
