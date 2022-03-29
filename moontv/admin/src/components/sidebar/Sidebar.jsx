@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Timeline } from "@material-ui/icons"
+import { PlayCircleOutline, Timeline } from "@material-ui/icons"
 import { Storefront } from "@material-ui/icons"
 import { BarChart } from "@material-ui/icons"
 import { DynamicFeed } from "@material-ui/icons"
@@ -46,10 +46,10 @@ export default function Sidebar() {
                     Users
                 </li>
                 </Link>
-                <Link to="/products" className="link">
+                <Link to="/movies" className="link">
                 <li className="sidebarListItem">
-                    <Storefront className="sidebarIcon" />
-                    Products
+                    <PlayCircleOutline className="sidebarIcon" />
+                    Movies
                 </li>
                 </Link>
                 <li className="sidebarListItem">

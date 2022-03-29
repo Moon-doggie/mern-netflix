@@ -73,7 +73,7 @@ router.get("/", verify, async (req, res) => {
     if (req.user.isAdmin) {
         try {         
             // If there is a query, find only the 10 most recent users. If there is no query, find all users.   
-            const users = query ? await User.find().sort({_id:-1}).limit(10) : await User.find()
+            const users = query ? await User.find().sort({_id:-1}).limit(5) : await User.find()
             await User.findByIdAndDelete(req.params.id)
             res.status(200).json(users)
             } 
