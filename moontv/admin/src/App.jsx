@@ -13,9 +13,9 @@ import {
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
-import ProductList from "./pages/productList/ProductList";
-import Product from "./pages/product/Product";
-import NewProduct from "./pages/newProduct/NewProduct";
+import MovieList from "./pages/movieList/MovieList";
+import Movie from "./pages/movie/Movie";
+import NewMovie from "./pages/newMovie/NewMovie";
 import Login from "./pages/login/Login";
 import { useContext } from "react"
 import { AuthContext } from "./context/authContext/AuthContext"
@@ -42,9 +42,9 @@ function App() {
                         <Route path ="/users" element = {user ? <UserList/> : <Navigate to="/login"/>}/>
                         <Route path ="/user/:userId" element = {user ?  <User/> : <Navigate to="/login"/>}/>
                         <Route path ="/newUser" element = {user ? <NewUser/> : <Navigate to="/login"/>}/>
-                        <Route path ="/movies" element = {user ? <ProductList/> : <Navigate to="/login"/>}/>
-                        <Route path ="/product/:productId" element = {user ? <Product/> : <Navigate to="/login"/>}/>
-                        <Route path ="/newProduct" element = {user ? <NewProduct/> : <Navigate to="/login"/>}/>                                    
+                        <Route path ="/movies" element = {user ? <MovieList/> : <Navigate to="/login"/>}/>
+                        <Route path ="/movie/:movieId" element = {user ? <Movie/> : <Navigate to="/login"/>}/>
+                        <Route path ="/newMovie" element = {user ? <NewMovie/> : <Navigate to="/login"/>}/>                                    
                     </Routes>
                 </div>
         </Router>

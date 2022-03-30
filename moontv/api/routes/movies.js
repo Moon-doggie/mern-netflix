@@ -10,8 +10,8 @@ router.post("/", verify, async (req, res) => {
         const newMovie = new Movie(req.body)
         // Try save in database. 
         try{
-            const saveMovie = await newMovie.save()
-            res.status(201).json(saveMovie)
+            const savedMovie = await newMovie.save()
+            res.status(201).json(savedMovie)
 
         }
         catch(err){

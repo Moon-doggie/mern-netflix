@@ -6,8 +6,7 @@ const AuthReducer = (state, action) => {
         case "LOGIN_START":
             return {
                 user:null,
-                // Are we fetching data from api or not. False until login button is clicked
-                isFetching:false,
+                isFetching:true,
                 // error set to true only if there is error fetching
                 error:false
             }
