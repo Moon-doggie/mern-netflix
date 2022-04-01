@@ -3,13 +3,16 @@ import "./movie.scss"
 import Chart from "../../components/chart/Chart"
 import {productData} from "../../dummyData"
 import { Publish } from "@material-ui/icons"
+// import {MovieContext} from "../../context/movieContext/MovieContext"
+// import { useContext } from "react"
+// import { updateMovie, UpdateMovie } from "../../context/movieContext/apiCalls"
+// import { useState } from "react"
+// import storage from "../../firebase"
 
 export default function Movie() {
 
-
     const location = useLocation()
     const {movie} = location.state 
-    
 
     return (
         <div className="product">
@@ -47,19 +50,21 @@ export default function Movie() {
             </div>
             <div className="productBottom">
                 <form className="productForm">
-                    <div className="productFormLeft">
+                    <div className="productFormLeft">                    
                         <label htmlFor="">Movie Title</label>
                         <input type="text" placeholder={movie.title} />
+                        <label htmlFor="">Description</label>
+                        <input type="text" placeholder={movie.desc} />
                         <label htmlFor="">Year</label>
-                        <input type="text" placeholder={movie.year}/>                        
+                        <input type="text" placeholder={movie.year} />                        
                         <label htmlFor="">Genre</label>
-                        <input type="text" placeholder={movie.genre}/>                               
+                        <input type="text" placeholder={movie.genre} />                               
                         <label htmlFor="">Limit</label>
-                        <input type="text" placeholder={movie.limit}/>                        
+                        <input type="text" placeholder={movie.limit} />                        
                         <label htmlFor="">Trailer</label>
                         <input type="file" placeholder={movie.trailer}/>                        
                         <label htmlFor="">Video</label>
-                        <input type="file" placeholder={movie.video}/>                        
+                        <input type="file" placeholder={movie.video} />                        
                     </div>
                     <div className="productFormRight">
                         <div className="productUpload">

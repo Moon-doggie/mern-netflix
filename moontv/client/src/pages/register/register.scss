@@ -17,6 +17,9 @@
             display: flex;  
             align-items: center;
             justify-content: space-between;
+            // Display on top.
+            z-index: 999;
+            position: sticky;
 
             .logo{
                 height: 40px;                
@@ -30,6 +33,7 @@
                 padding: 5px 15px;
                 font-size: 16px;
                 font-weight: 500;
+                cursor: pointer;
             }
         }
     }

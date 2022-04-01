@@ -1,25 +1,25 @@
 // Take actions, and according to actions, update context state
 
-const MovieReducer = (state, action) => {
+const ListReducer = (state, action) => {
     // type ffrom AuthAction
     switch(action.type){
-        case "GET_MOVIES_START":
+        case "GET_LISTS_START":
             return {
-                movies:[],
+                lists:[],
                 isFetching:true,
                 // error set to true only if there is error fetching
                 error:false
             }
-        case "GET_MOVIES_SUCCESS":
+        case "GET_LISTS_SUCCESS":
             return {
                 // movies from AuthAction payload.
-                movies: action.payload,
+                lists: action.payload,
                 isFetching:false,
                 error:false
             }
-        case "GET_MOVIES_FAILURE":
+        case "GET_LISTS_FAILURE":
             return {
-                movies:[],
+                lists:[],
                 isFetching:false,
                 error:true
             }
@@ -27,19 +27,19 @@ const MovieReducer = (state, action) => {
 
         // Delete cases
 
-        case "DELETE_MOVIE_START":
+        case "DELETE_LIST_START":
         return {
             ...state,
             isFetching: true,
             error: false,
          }
-         case "DELETE_MOVIE_SUCCESS":
+         case "DELETE_LIST_SUCCESS":
         return {
-            movies: state.movies.filter((movie) => movie._id !== action.payload),
+            lists: state.lists.filter((list) => list._id !== action.payload),
             isFetching: false,
             error: false,
         }
-        case "DELETE_MOVIE_FAILURE":
+        case "DELETE_LIST_FAILURE":
         return {
             ...state,
             isFetching: false,
@@ -48,19 +48,19 @@ const MovieReducer = (state, action) => {
 
         // Add cases
 
-        case "DELETE_MOVIE_START":
+        case "DELETE_LIST_START":
         return {
             ...state,
             isFetching: true,
             error: false,
          }
-         case "DELETE_MOVIE_SUCCESS":
+         case "DELETE_LIST_SUCCESS":
         return {
-            movies: [...state.movies, action.payload],
+            lists: [...state.lists, action.payload],
             isFetching: false,
             error: false,
         }
-        case "DELETE_MOVIE_FAILURE":
+        case "DELETE_LIST_FAILURE":
         return {
             ...state,
             isFetching: false,
@@ -69,19 +69,19 @@ const MovieReducer = (state, action) => {
 
         // Update cases
 
-        case "UPDATE_MOVIE_START":
+        case "UPDATE_LIST_START":
         return {
             ...state,
             isFetching: true,
             error: false,
          }
-         case "UPDATE_MOVIE_SUCCESS":
+         case "UPDATE_LIST_SUCCESS":
         return {
-            movies: state.movies.map((movie)=>movie._id === action.payload._id && action.payload),
+            movies: state.lists.map((list)=>list._id === action.payload._id && action.payload),
             isFetching: false,
             error: false,
         }
-        case "UPDATE_MOVIE_FAILURE":
+        case "UPDATE_LIST_FAILURE":
         return {
             ...state,
             isFetching: false,
@@ -96,4 +96,4 @@ const MovieReducer = (state, action) => {
     
 }
 
-export default MovieReducer
+export default ListReducer

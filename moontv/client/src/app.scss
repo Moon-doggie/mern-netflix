@@ -7,3 +7,17 @@
     color: inherit;
     text-decoration:none;
 }
+
+@mixin tablet {
+    // small devices
+    @media(max-width:768px){
+        @content;
+    }
+}
+
+@mixin mobile {
+    // small devices
+    @media(max-width:480px){
+        @content
+    }
+}

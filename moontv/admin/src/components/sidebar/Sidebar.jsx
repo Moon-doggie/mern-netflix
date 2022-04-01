@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { PlayCircleOutline, Timeline } from "@material-ui/icons"
+import { List, PlayCircleOutline, Timeline } from "@material-ui/icons"
 import { Storefront } from "@material-ui/icons"
 import { BarChart } from "@material-ui/icons"
 import { DynamicFeed } from "@material-ui/icons"
@@ -41,21 +41,23 @@ export default function Sidebar() {
             <h3 className="sidebarTitle">Quick Menu</h3>
             <ul className="sidebarList">
                 <Link to="/users" className="link">
-                <li className="sidebarListItem">
-                    <PermIdentity className="sidebarIcon" />
-                    Users
-                </li>
+                    <li className="sidebarListItem">
+                        <PermIdentity className="sidebarIcon" />
+                        Users
+                    </li>
                 </Link>
                 <Link to="/movies" className="link">
-                <li className="sidebarListItem">
-                    <PlayCircleOutline className="sidebarIcon" />
-                    Movies
-                </li>
+                    <li className="sidebarListItem">
+                        <PlayCircleOutline className="sidebarIcon" />
+                        Movies
+                    </li>
                 </Link>
-                <li className="sidebarListItem">
-                <AttachMoney className="sidebarIcon" />
-                Transactions
-                </li>
+                <Link to="/lists" className="link">
+                    <li className="sidebarListItem">
+                        <List className="sidebarIcon" />
+                        Lists
+                    </li>
+                </Link>
                 <li className="sidebarListItem">
                 <BarChart className="sidebarIcon" />
                 Reports

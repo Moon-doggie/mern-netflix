@@ -3,7 +3,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import "./featured.scss"
 
-export default function Featured({type}) {
+export default function Featured({type, setGenre}) {
     const [content, setContent] = useState({})
 
     useEffect(() => {
@@ -11,8 +11,8 @@ export default function Featured({type}) {
             try {
             const res = await axios.get(`/movies/random?type=${type}`, {
                 headers: {
-                    token:
-                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzFmMjI2MmM3MTM2NDgwM2QwZmQxYyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODI5MTA3NCwiZXhwIjoxNjQ4NzIzMDc0fQ.xdz4x00fej9frERoq9CDu51CaXk5qlp0k1owjP1n3iU d"
+                    token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken
+                    // "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDMyYmYxYjM4YjZhZDYyM2ZkOWIxMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODgwNTI4MCwiZXhwIjoxNjQ5MjM3MjgwfQ.LHLPQRMMyY84oqKR5npPbzRnlgIR7Y9yFYAYqjirhG4"                        
                 },
             })
             setContent(res.data[0])
@@ -30,7 +30,7 @@ export default function Featured({type}) {
                 {type && (
                     <div className="category">
                         <span>{type === "movies" ? "Movies" : "Series"}</span> 
-                        <select name="fenre" id="genre">
+                        <select name="fenre" id="genre" onChange={(e)=> setGenre(e.target.value)}>
                             <option value="comedy">Comedy</option>
                             <option value="crime">Crime</option>
                             <option value="fantasy">Fantasy</option>

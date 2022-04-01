@@ -20,7 +20,8 @@ const Home = ({type}) => {
                 const res = await axios.get(`lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`,
                 {
                     headers: {
-                        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzFmMjI2MmM3MTM2NDgwM2QwZmQxYyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODI5MTA3NCwiZXhwIjoxNjQ4NzIzMDc0fQ.xdz4x00fej9frERoq9CDu51CaXk5qlp0k1owjP1n3iU"
+                        token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken
+                        // "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDMyYmYxYjM4YjZhZDYyM2ZkOWIxMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODgwNTI4MCwiZXhwIjoxNjQ5MjM3MjgwfQ.LHLPQRMMyY84oqKR5npPbzRnlgIR7Y9yFYAYqjirhG4"
                     },
                 }
             )
@@ -38,7 +39,7 @@ const Home = ({type}) => {
         <Navbar/>
         {/* Type has been set up to go into featured as below */}
         {/* <Featured type="movie"/> */}
-        <Featured type={type} />
+        <Featured type={type} setGenre={setGenre} />
         {/* map through, and for each lists call the list component and pass the list */}
         {lists.map((list) => (
             <List list={list} />

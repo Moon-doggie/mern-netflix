@@ -1,11 +1,16 @@
 import { ArrowDropDown, LaptopWindows, Notifications, Search } from '@material-ui/icons'
-import { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { useContext, useState } from 'react'
+import {AuthContext} from '../../context/authContext/AuthContext'
+import {logout} from "../../context/authContext/AuthAction"
+import { Link } from 'react-router-dom';    
 import './navbar.scss'
 
 const Navbar = () => {
     // set useState for scroll effect i.e. transparent at top and black when isScrolled
     const [isScrolled, setIsScrolled]  = useState(false);
+
+    // logout 
+    const {dispatch}  = useContext(AuthContext)
 
     window.onscroll = () => {
         // if it is on the top then false, if not on the top then set to true.
@@ -24,10 +29,10 @@ const Navbar = () => {
                     <span>Homepage</span>
                 </Link>
                 <Link to ="/series" className='link' >
-                    <span>Series</span>
+                    <span className='navbarMainLinks'>Series</span>
                 </Link>
                 <Link to ="/movies" className='link'>
-                    <span>Movies</span>
+                    <span className='navbarMainLinks'>Movies</span>
                 </Link>
                 <span>New</span>
                 <span>Popular</span>
@@ -43,7 +48,7 @@ const Navbar = () => {
                     <ArrowDropDown className='icon'/>
                     <div className="options">
                         <span>Settings</span>
-                        <span>Logout</span>
+                        <span onClick={() => dispatch(logout())}>Logout</span>
                     </div>
                 </div>    
             </div>

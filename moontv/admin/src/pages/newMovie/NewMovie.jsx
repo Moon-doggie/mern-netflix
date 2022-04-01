@@ -2,9 +2,13 @@ import { ListItemSecondaryAction } from "@material-ui/core"
 import { useState } from "react"
 import "./newMovie.scss"
 import storage from "../../firebase"
+import { createMovie } from "../../context/movieContext/apiCalls"
+import { useContext } from "react"
+import {MovieContext} from "../../context/movieContext/MovieContext"
+
 
 export default function NewMovie() {
-
+    
     const [movie, setMovie] = useState({})
     const [img, setImg] = useState()
     const [imgTitle, setImgTitle] = useState()
@@ -13,17 +17,19 @@ export default function NewMovie() {
     const [video, setVideo] = useState()
     // to show how many files have been uploaded.
     const [uploaded, setUploaded] = useState(0)
+    
+    const {dispatch} = useContext(MovieContext)
 
     const handleChange = (e) => {
         const value = e.target.value;
-        setMovie({ ...movie, [e.target.name]: value });
-    };
+        setMovie({ ...movie, [e.target.name]: value })
+    }
 
     const upload = (items) => {
         items.forEach((item) => {
             // Set unique filename for uploads
-            const filename = new Date().getTime() + item.label +item.file.name
-            const uploadTask = storage.ref(`/items/${filename}`).put(item)
+            const filename = new Date().getTime() + item.label +item.file
+            const uploadTask = storage.ref(`/items/${filename}`).put(item.file)
             // Show upload %
             uploadTask.on(
                 "state_changed",
@@ -48,7 +54,7 @@ export default function NewMovie() {
 
     const handleUpload = (e) => {
         // Prevent refresh.
-        e.preventDefault();
+        e.preventDefault()
         upload([
             { file: img, label: "img" },
             { file: imgTitle, label: "imgTitle" },
@@ -58,7 +64,10 @@ export default function NewMovie() {
         ])
     }
 
-console.log(movie)
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        createMovie(movie, dispatch)
+    }
 
   	return (
 	 	<div className="newProduct">
@@ -115,7 +124,7 @@ console.log(movie)
                     <label>Video</label>
                     <input type="file" placeholder="" name="video"  onChange={(e)=>setVideo(e.target.files[0])}/>
                 </div> {uploaded === 5 ? (
-                    <button className="addProductButton">Create</button>
+                    <button className="addProductButton" onClick={handleSubmit}>Create</button>
                     ) : (
                         <button className="addProductButton" onClick={handleUpload}>Upload</button>                      
                     )

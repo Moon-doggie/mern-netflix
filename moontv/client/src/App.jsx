@@ -13,10 +13,13 @@ import {
     Link,
     Navigate
   } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "./context/authContext/AuthContext";
 
 const App = () => {
     // Not implementation of user, just temporary...
-    const user = true;
+    // const user = true;
+    const {user} = useContext(AuthContext)
     return (
         <Router>
             {/* Note, no switch in v6 of react-router-dom */}
@@ -31,7 +34,7 @@ const App = () => {
                     user && (
                         // Using multiple components without any parent, so use react fragments.
                         <>
-                            <Route path="/movies" element = {<Home type="movies" />} />
+                            <Route path="/movies" element = {<Home type="movie" />} />
                             <Route path="/series" element = {<Home type="series" />} />
                             <Route path="/watch" element = {<Watch/>} />
                         </>
